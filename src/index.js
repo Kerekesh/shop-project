@@ -1,6 +1,15 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
-const element = <h1>Hello, world</h1>;
+function Title() {
+    return <h1>Hello, world</h1>
+}
 
-ReactDOM.render(element, document.getElementById("root"));
+const el = (
+    <div>
+        <Title />
+        <Title />
+    </div>
+)
+
+ReactDOM.render(el, document.getElementById("root"));

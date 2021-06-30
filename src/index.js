@@ -1,15 +1,27 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Title() {
-    return <h1>Hello, world</h1>
+const Title = (props) => {
+    console.log(props)
+    return <h1>Hello, world {props.text}</h1>
+}
+const List = () => {
+    return (
+        <ul>
+            <li>List item 1</li>
+            <li>List item 1</li>
+            <li>List item 1</li>
+        </ul>
+    )
 }
 
 const el = (
-    <div>
-        <Title />
-        <Title />
-    </div>
+    <>
+        <Title text="Jack" />
+        <Title text="John" />
+        <List />
+    </>
 )
 
-ReactDOM.render(el, document.getElementById("root"));
+ReactDOM.render(el, document.getElementById('root'));

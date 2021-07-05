@@ -5,14 +5,18 @@ import ReactDOM from 'react-dom';
 const Title = ({ text, id }) => {
     return (
         <h1>
-            Hello, world {text}, {id}
+            Hello, {text}, {id}
         </h1>
     )
 }
 
 Title.propTypes = {
     text: PropTypes.string,
-    id: PropTypes.number,
+    id: PropTypes.number.isRequired,
+}
+
+Title.defaultProps = {
+    text: "World",
 }
 
 const List = () => {
@@ -28,7 +32,7 @@ const List = () => {
 const el = (
     <>
         <Title text="Jack" id={1} />
-        <Title text="John" />
+        <Title id={2} />
         <List />
     </>
 )

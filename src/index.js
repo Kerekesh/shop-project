@@ -1,11 +1,20 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types'; // ES6
 import React from "react";
 import ReactDOM from 'react-dom';
 
-const Title = (props) => {
-    console.log(props)
-    return <h1>Hello, world {props.text}</h1>
+const Title = ({ text, id }) => {
+    return (
+        <h1>
+            Hello, world {text}, {id}
+        </h1>
+    )
 }
+
+Title.propTypes = {
+    text: PropTypes.string,
+    id: PropTypes.number,
+}
+
 const List = () => {
     return (
         <ul>
@@ -18,7 +27,7 @@ const List = () => {
 
 const el = (
     <>
-        <Title text="Jack" />
+        <Title text="Jack" id={1} />
         <Title text="John" />
         <List />
     </>

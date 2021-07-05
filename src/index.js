@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
 
 const Title = (props) => {
@@ -10,8 +10,8 @@ const List = () => {
     return (
         <ul>
             <li>List item 1</li>
-            <li>List item 1</li>
-            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
         </ul>
     )
 }
@@ -24,4 +24,4 @@ const el = (
     </>
 )
 
-ReactDOM.render(el, document.getElementById('root'));
+ReactDOM.render(el, document.getElementById("root"));

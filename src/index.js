@@ -1,18 +1,7 @@
-import React from "react";
 import ReactDOM from 'react-dom';
+import App from './container/App';
 
-const App = () => {
-    return (
-        <h1>
-            Hello, App.js
-        </h1>
-    )
-}
 
-const el = (
-    <>
-        <App />
-    </>
-)
 
-ReactDOM.render(el, document.getElementById("root"));
+
+ReactDOM.render(App, document.getElementById("root"));

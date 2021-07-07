@@ -2,16 +2,11 @@ import React from "react";
 
 const App = () => {
     return (
-        <h1>
-            Hello, App.js
-        </h1>
+        <>
+            <h1>
+                Hello, App.js
+            </h1>
+        </>
     )
 }
-
-const el = (
-    <>
-        <App />
-    </>
-)
-
-export default el;
+export default App;

@@ -7,6 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Menu from './Menu/Menu'
+import Cart from './Cart/Cart'
 
 const useStyles = makeStyles(() => ({
     menuButton: {
@@ -36,6 +37,7 @@ const Header = () => {
                         Fake shop
                     </Typography>
                     <Menu />
+                    <Cart />
                 </Toolbar>
             </Container>
         </AppBar>

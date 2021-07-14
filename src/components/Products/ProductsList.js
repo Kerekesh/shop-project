@@ -35,11 +35,12 @@ const ProductsList = () => {
             >
 
                 {productsArray.map(({
-                    id, name, description, type, color, price
+                    id, name, description, type, color, price, image
                 }) => (
 
                     <Grid item xs={12} sm={6} md={4} key={id}>
                         <ProductListItem
+                            image={image}
                             name={name}
                             description={description}
                             type={type}

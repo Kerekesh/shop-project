@@ -1,11 +1,12 @@
 const productsArray = [
     {
         id: 1,
-        name: 'iPhone XS',
-        description: 'This is iPhone XS red',
+        name: 'iPhone 11',
+        description: 'This is iPhone 11 black',
         type: 'phone',
-        color: 'red',
+        color: 'black',
         price: 500,
+        image: "/images/iphone-black.jpg"
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ const productsArray = [
         type: 'phone',
         color: 'gold',
         price: 450,
+        image: "/images/iphone-gold.jpg"
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ const productsArray = [
         type: 'tablet',
         color: 'silver',
         price: 1500,
+        image: "/images/ipad-silver.jpg"
     },
     {
         id: 4,
@@ -30,6 +33,7 @@ const productsArray = [
         type: 'watch',
         color: 'blue',
         price: 550,
+        image: "/images/watch-blue.jpg"
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ const productsArray = [
         type: 'notebook',
         color: 'space gray',
         price: 1600,
+        image: "/images/macbook-silver.jpg"
     },
     {
         id: 6,
@@ -46,6 +51,7 @@ const productsArray = [
         type: 'pc',
         color: 'green',
         price: 1500,
+        image: "/images/imac-green.jpg"
     },
 ]
 

@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import ProductListItem from './ProductListItem'
+import productsArray from './productsArray'
 
 const useStyles = makeStyles({
     title: {
@@ -20,6 +21,7 @@ const ProductsList = () => {
                 component="h1"
                 align="center"
                 className={classes.title}
+                spacing={3}
             >
                 Products List
             </Typography>
@@ -31,33 +33,18 @@ const ProductsList = () => {
                 alignItems="center"
                 spacing={3}
             >
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductListItem
-                        name="iPhone XS"
-                        description="This is iPhone XS"
-                        type="phone"
-                        color="red"
-                        price={500}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductListItem
-                        name="iPhone 12"
-                        description="This is iPhone 12"
-                        type="phone"
-                        color="gold"
-                        price={1500}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductListItem
-                        name="iPhone 12"
-                        description="This is iPhone 12"
-                        type="phone"
-                        color="gold"
-                        price={1500}
-                    />
-                </Grid>
+
+                {productsArray.map((product) => (
+                    <Grid item xs={12} sm={6} md={4} key={product.id}>
+                        <ProductListItem
+                            name={product.name}
+                            description={product.description}
+                            type={product.type}
+                            color={product.color}
+                            price={product.price}
+                        />
+                    </Grid>
+                ))}
             </Grid>
         </>
     )

@@ -22,6 +22,7 @@ const ProductListItem = ({ name, description, type, color, price }) => {
     )
 }
 
+
 ProductListItem.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -7,45 +7,60 @@ import CardActions from '@material-ui/core/CardActions'
 import TextField from '@material-ui/core/TextField'
 import "./ProductListItem.css"
 
+class ProductListItem extends Component {
+    constructor() {
+        super()
+        this.state = {
+            productCount: 1,
+        }
+        this.onIncrementClick = this.onIncrementClick.bind(this)
+    }
 
-const ProductListItem = ({ name, description, type, color, price, image }) => {
+    onIncrementClick() {
+        this.setState(prevState => ({
+            productCount: prevState.productCount + 1,
+        }))
+    }
 
-    const [count, setCount] = useState(1)
+    render() {
+        const { name, description, type, color, price, image } = this.props
 
-    return (
-        <Card>
-            <CardContent>
-                <div className="product-img">
-                    <img src={image} />
-                </div>
-                <h4>{name}</h4>
-                <p>{description}</p>
-                <div>Type: {type}</div>
-                <div>Color: {color}</div>
-                <div className="product-price">{price} $</div>
-                <div className="product-quantity">
-                    <Button
-                        variant="outlined"
-                        onClick={() => setCount(count - 1)}
-                        disabled={count <= 1}
-                    >
-                        -
-                    </Button>
-                    <TextField variant="outlined" size="small" value={count}></TextField>
-                    <Button
-                        variant="outlined"
-                        onClick={() => setCount(count + 1)}
-                        disabled={count >= 10}
-                    >
-                        +
-                    </Button>
-                </div>
-            </CardContent>
-            <CardActions className="btn-wrap">
-                <Button variant="contained" color="primary">Add to cart</Button>
-            </CardActions>
-        </Card>
-    )
+        return (
+            <Card>
+                <CardContent>
+                    <div className="product-img">
+                        <img src={image} />
+                    </div>
+                    <h4>{name}</h4>
+                    <p>{description}</p>
+                    <div>Type: {type}</div>
+                    <div>Color: {color}</div>
+                    <div className="product-price">{price} $</div>
+                    <div className="product-quantity">
+                        <Button
+                            variant="outlined"
+                        >
+                            -
+                        </Button>
+                        <TextField
+                            variant="outlined"
+                            size="small"
+                            value={this.state.productCount}
+                        ></TextField>
+                        <Button
+                            variant="outlined"
+                            onClick={this.onIncrementClick}
+                        >
+                            +
+                        </Button>
+                    </div>
+                </CardContent>
+                <CardActions className="btn-wrap">
+                    <Button variant="contained" color="primary">Add to cart</Button>
+                </CardActions>
+            </Card>
+        )
+    }
 }
 
 ProductListItem.propTypes = {

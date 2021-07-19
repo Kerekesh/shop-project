@@ -26,7 +26,8 @@ const ProductListItem = ({ name, description, type, color, price, image }) => {
                 <div className="product-quantity">
                     <Button
                         variant="outlined"
-                        onClick={() => count == 0 ? setCount(count) : setCount(count - 1)}
+                        onClick={() => setCount(count - 1)}
+                        disabled={count <= 1}
                     >
                         -
                     </Button>
@@ -34,13 +35,14 @@ const ProductListItem = ({ name, description, type, color, price, image }) => {
                     <Button
                         variant="outlined"
                         onClick={() => setCount(count + 1)}
+                        disabled={count >= 10}
                     >
                         +
                     </Button>
                 </div>
             </CardContent>
-            <CardActions>
-                <Button>Add to cart</Button>
+            <CardActions className="btn-wrap">
+                <Button variant="contained" color="primary">Add to cart</Button>
             </CardActions>
         </Card>
     )

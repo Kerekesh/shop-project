@@ -16,3 +16,7 @@
 .product-quantity input {
     text-align: center;
 }
+.btn-wrap {
+    justify-content: center;
+    margin-bottom: 15px;
+}

@@ -8,12 +8,9 @@ import TextField from '@material-ui/core/TextField'
 import "./ProductListItem.css"
 
 class ProductListItem extends Component {
-    constructor() {
-        super()
-        this.state = {
-            productCount: 1,
-        }
-        this.onIncrementClick = this.onIncrementClick.bind(this)
+    state = {
+        productCount: 1,
+        productColor: "green",
     }
 
     onIncrementClick() {
@@ -22,6 +19,17 @@ class ProductListItem extends Component {
         }))
     }
 
+    onDecrementClick = () => {
+        this.setState(prevState => ({
+            productCount: prevState.productCount - 1,
+        }))
+    }
+
+    changeColor = () => {
+        this.setState({
+            productColor: this.state.productColor == "green" ? "red" : "green",
+        })
+    }
     render() {
         const { name, description, type, color, price, image } = this.props
 
@@ -39,6 +47,7 @@ class ProductListItem extends Component {
                     <div className="product-quantity">
                         <Button
                             variant="outlined"
+                            onClick={() => this.onDecrementClick()}
                         >
                             -
                         </Button>
@@ -49,7 +58,7 @@ class ProductListItem extends Component {
                         ></TextField>
                         <Button
                             variant="outlined"
-                            onClick={this.onIncrementClick}
+                            onClick={() => this.onIncrementClick()}
                         >
                             +
                         </Button>
@@ -58,6 +67,9 @@ class ProductListItem extends Component {
                 <CardActions className="btn-wrap">
                     <Button variant="contained" color="primary">Add to cart</Button>
                 </CardActions>
+
+                <p>Color: {this.state.productColor}</p>
+                <button onClick={() => this.changeColor()}>Change color</button>
             </Card>
         )
     }

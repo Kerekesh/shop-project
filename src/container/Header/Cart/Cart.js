@@ -1,11 +1,19 @@
 import React from 'react'
 
+
+import AddToCart from "../../../components/Products/ProductListItem"
+
 const Cart = () => {
+
     return (
-        <div>
-            <div>0</div>
-            <div>$ 0</div>
-        </div>
+        <AddToCart props>
+            <div>
+                <div>{props.quantity}</div>
+                <div>{sum} $</div>
+            </div>
+
+        </AddToCart>
+
     )
 }
 

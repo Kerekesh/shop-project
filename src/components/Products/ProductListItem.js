@@ -8,9 +8,18 @@ import TextField from '@material-ui/core/TextField'
 import "./ProductListItem.css"
 
 
+
 const ProductListItem = ({ name, description, type, color, price, image }) => {
 
     const [count, setCount] = useState(1)
+    const [quantity, calculateQuantity] = useState(0)
+    const [sum, calculatePrice] = useState(0)
+
+    const AddToCart = ({ quantity, sum }) => {
+        calculateQuantity(quantity + count)
+        calculatePrice(sum + price)
+    }
+
 
     return (
         <Card>
@@ -42,9 +51,15 @@ const ProductListItem = ({ name, description, type, color, price, image }) => {
                 </div>
             </CardContent>
             <CardActions className="btn-wrap">
-                <Button variant="contained" color="primary">Add to cart</Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => AddToCart()}
+                >Add to cart</Button>
             </CardActions>
-        </Card>
+            <p>{quantity}</p>
+            <p>{sum}</p>
+        </Card >
     )
 }
 
@@ -60,4 +75,4 @@ ProductListItem.defaultProps = {
     description: "No description"
 }
 
-export default ProductListItem
+export { ProductListItem, AddToCart }

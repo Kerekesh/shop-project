@@ -15,7 +15,7 @@ const ProductListItem = ({ name, description, type, color, price, image }) => {
     const [quantity, calculateQuantity] = useState(0)
     const [sum, calculatePrice] = useState(0)
 
-    const AddToCart = ({ quantity, sum }) => {
+    const AddToCart = () => {
         calculateQuantity(quantity + count)
         calculatePrice(sum + price)
     }
@@ -75,4 +75,4 @@ ProductListItem.defaultProps = {
     description: "No description"
 }
 
-export { ProductListItem, AddToCart }
+export default ProductListItem

@@ -12,13 +12,6 @@ import "./ProductListItem.css"
 const ProductListItem = ({ name, description, type, color, price, image }) => {
 
     const [count, setCount] = useState(1)
-    const [quantity, calculateQuantity] = useState(0)
-    const [sum, calculatePrice] = useState(0)
-
-    const AddToCart = () => {
-        calculateQuantity(quantity + count)
-        calculatePrice(sum + price)
-    }
 
 
     return (
@@ -54,11 +47,8 @@ const ProductListItem = ({ name, description, type, color, price, image }) => {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => AddToCart()}
                 >Add to cart</Button>
             </CardActions>
-            <p>{quantity}</p>
-            <p>{sum}</p>
         </Card >
     )
 }

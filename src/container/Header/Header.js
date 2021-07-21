@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Menu from './Menu/Menu'
 import Cart from './Cart/Cart'
@@ -18,7 +19,7 @@ const useStyles = makeStyles(() => ({
     },
 }))
 
-const Header = () => {
+const Header = ({ cartData }) => {
     const classes = useStyles()
 
     return (
@@ -37,11 +38,18 @@ const Header = () => {
                         Fake shop
                     </Typography>
                     <Menu />
-                    <Cart />
+                    <Cart
+                        count={cartData.count}
+                        totalPrice={cartData.totalPrice}
+                    />
                 </Toolbar>
             </Container>
         </AppBar>
     )
+}
+
+Header.propTypes = {
+    cartData: PropTypes.object,
 }
 
 export default Header

@@ -11,10 +11,18 @@ const App = () => {
         totalPrice: 0,
     })
 
+    const addProductToCart = (count, price) => {
+        setCartData({
+            count: cartData.count + count,
+            totalPrice: cartData.totalPrice + count * price,
+        })
+    }
+
     return (
         <>
             <CssBaseline />
             <Header cartData={cartData} />
+            <button onClick={() => addProductToCart(5, 500)}>AddToCart</button>
             <Main />
         </>
     )

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Header from './Header/Header'
@@ -22,8 +23,7 @@ const App = () => {
         <>
             <CssBaseline />
             <Header cartData={cartData} />
-            <button onClick={() => addProductToCart(5, 500)}>AddToCart</button>
-            <Main />
+            <Main addProductToCart={addProductToCart} />
         </>
     )
 }

@@ -5,24 +5,18 @@ import Header from './Header/Header'
 import Main from './Main/Main'
 
 const App = () => {
-
     // eslint-disable-next-line no-unused-vars
-    const [cartData, setCartData] = useState({
-        count: 0,
-        totalPrice: 0,
+    const [productsInCart, setProductsInCart] = useState({
+        1: 5,
+        2: 1,
     })
 
-    const addProductToCart = (count, price) => {
-        setCartData({
-            count: cartData.count + count,
-            totalPrice: cartData.totalPrice + count * price,
-        })
-    }
+    const addProductToCart = (count, price) => { }
 
     return (
         <>
             <CssBaseline />
-            <Header cartData={cartData} />
+            <Header productsInCart={productsInCart} />
             <Main addProductToCart={addProductToCart} />
         </>
     )

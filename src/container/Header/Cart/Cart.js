@@ -1,12 +1,16 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
+import { keys } from 'lodash'
 
-const Cart = ({ count, totalPrice }) => {
+const Cart = ({ productsInCart }) => {
     return (
         <div>
-            <div>{count}</div>
-            <div>{totalPrice} $</div>
+            {keys(productsInCart).map((id) => (
+                <div key={id}>
+                    {id} : {productsInCart[id]}
+                </div>
+            ))}
         </div>
-
     )
 }
 

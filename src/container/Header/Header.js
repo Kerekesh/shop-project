@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
     },
 }))
 
-const Header = ({ cartData }) => {
+const Header = ({ productsInCart }) => {
     const classes = useStyles()
 
     return (
@@ -38,10 +38,7 @@ const Header = ({ cartData }) => {
                         Fake shop
                     </Typography>
                     <Menu />
-                    <Cart
-                        count={cartData.count}
-                        totalPrice={cartData.totalPrice}
-                    />
+                    <Cart productsInCart={productsInCart} />
                 </Toolbar>
             </Container>
         </AppBar>
@@ -49,7 +46,7 @@ const Header = ({ cartData }) => {
 }
 
 Header.propTypes = {
-    cartData: PropTypes.object,
+    productsInCart: PropTypes.object,
 }
 
 export default Header

@@ -28,8 +28,8 @@ const productsArray = [
     },
     {
         id: 4,
-        name: 'Apple Watch Series 6 44mm',
-        description: 'This is Apple Watch 6 blue',
+        name: 'Apple Watch Series 6',
+        description: 'This is Apple Watch 6 44mm blue',
         type: 'watch',
         color: 'blue',
         price: 550,

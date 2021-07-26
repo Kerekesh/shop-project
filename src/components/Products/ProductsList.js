@@ -35,23 +35,21 @@ const ProductsList = ({ addProductToCart }) => {
                 spacing={3}
             >
 
-                {productsArray.map(({
-                    id, name, description, type, color, price, image
-                }) => (
-
-                    <Grid item xs={12} sm={6} md={4} key={id}>
-                        <ProductListItem
-                            id={id}
-                            image={image}
-                            name={name}
-                            description={description}
-                            type={type}
-                            color={color}
-                            price={price}
-                            addProductToCart={addProductToCart}
-                        />
-                    </Grid>
-                ))}
+                {productsArray.map(
+                    ({ id, name, description, type, color, price, image }) => (
+                        <Grid item xs={12} sm={6} md={4} key={id}>
+                            <ProductListItem
+                                id={id}
+                                image={image}
+                                name={name}
+                                description={description}
+                                type={type}
+                                color={color}
+                                price={price}
+                                addProductToCart={addProductToCart}
+                            />
+                        </Grid>
+                    ))}
 
             </Grid>
         </>

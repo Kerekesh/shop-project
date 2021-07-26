@@ -6,12 +6,14 @@ import Main from './Main/Main'
 
 const App = () => {
     // eslint-disable-next-line no-unused-vars
-    const [productsInCart, setProductsInCart] = useState({
-        1: 5,
-        2: 1,
-    })
+    const [productsInCart, setProductsInCart] = useState({ 0: 0, 5: 5 })
 
-    const addProductToCart = (count, price) => { }
+    const addProductToCart = (id, count) => {
+        let obj = {}
+        setProductsInCart(
+            Object.assign(obj, { [id]: count })
+        )
+    }
 
     return (
         <>

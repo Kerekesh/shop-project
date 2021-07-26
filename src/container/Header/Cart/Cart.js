@@ -4,7 +4,10 @@ import { keys } from 'lodash'
 
 const Cart = ({ productsInCart }) => {
     return (
+
         <div>
+            {console.log(productsInCart)}
+            {console.log(keys(productsInCart))}
             {keys(productsInCart).map((id) => (
                 <div key={id}>
                     {id} : {productsInCart[id]}

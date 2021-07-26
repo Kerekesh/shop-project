@@ -9,7 +9,7 @@ import "./ProductListItem.css"
 
 
 
-const ProductListItem = ({ name, description, type, color, price, image, addProductToCart }) => {
+const ProductListItem = ({ id, name, description, type, color, price, image, addProductToCart }) => {
 
     const [count, setCount] = useState(1)
 
@@ -47,14 +47,16 @@ const ProductListItem = ({ name, description, type, color, price, image, addProd
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => addProductToCart(count, price)}
+                    onClick={() => addProductToCart(id, count)}
                 >Add to cart</Button>
             </CardActions>
         </Card >
     )
 }
 
+
 ProductListItem.propTypes = {
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string,
     type: PropTypes.string.isRequired,

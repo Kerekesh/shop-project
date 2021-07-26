@@ -14,6 +14,7 @@ const useStyles = makeStyles({
 const ProductsList = ({ addProductToCart }) => {
     const classes = useStyles()
 
+
     return (
         <>
             <Typography
@@ -40,6 +41,7 @@ const ProductsList = ({ addProductToCart }) => {
 
                     <Grid item xs={12} sm={6} md={4} key={id}>
                         <ProductListItem
+                            id={id}
                             image={image}
                             name={name}
                             description={description}

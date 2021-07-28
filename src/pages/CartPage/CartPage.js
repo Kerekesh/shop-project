@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     },
 })
 
-const CartPage = ({ productsInCart }) => {
+const CartPage = ({ productsInCart, removeProductFromCart }) => {
     const classes = useStyles()
     return (
         <>
@@ -40,7 +40,9 @@ const CartPage = ({ productsInCart }) => {
                                     Price for one items: {productsObj[id].price}
                                 </p>
                                 <p>Count: {productsInCart[id]}</p>
-                                <Button variant="contained" color="primary">
+                                <Button variant="contained"
+                                    color="primary"
+                                    onClick={() => removeProductFromCart(id)}>
                                     <DeleteIcon />
                                 </Button>
                             </CardContent>

@@ -16,12 +16,9 @@ const App = () => {
         ...productsInCart,
         [id]: (productsInCart[id] || 0) + count,
     })
-    console.log(productsInCart)
 
     const removeProductFromCart = (id) => {
-        let prevProductsInCart = { ...productsInCart }
-        delete prevProductsInCart[id]
-        setProductsInCart(prevProductsInCart)
+        setProductsInCart(omit(productsInCart, id))
     }
 
     return (
@@ -33,7 +30,10 @@ const App = () => {
             </button>
             <Main
                 addProductToCart={addProductToCart}
-                productsInCart={productsInCart} />
+                productsInCart={productsInCart}
+                removeProductFromCart={removeProductFromCart}
+            />
+
         </>
     )
 }

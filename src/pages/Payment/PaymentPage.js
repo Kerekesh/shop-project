@@ -18,7 +18,7 @@ import {
     useElements,
     useStripe
 } from "@stripe/react-stripe-js";
-import "./PaymentPage.css";
+// import "./PaymentPage.css";
 
 const CARD_OPTIONS = {
     iconStyle: "solid",

@@ -16,12 +16,18 @@ const App = () => {
         [id]: (productsInCart[id] || 0) + count,
     })
 
+    const removeProductForCart = () => {
+
+    }
+
 
     return (
         <>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <Main addProductToCart={addProductToCart} />
+            <Main
+                addProductToCart={addProductToCart}
+                productsInCart={productsInCart} />
         </>
     )
 }

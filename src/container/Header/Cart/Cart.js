@@ -18,10 +18,6 @@ const Cart = ({ productsInCart }) => {
                 </div>
             ))}
             <CartTotal productsInCart={productsInCart} />
-            {/* <div>
-                Total: {keys(productsInCart).reduce((total, productId) => (
-                    total + productsInCart[productId] * productsObj[productId].price), 0)} $
-            </div> */}
         </div>
     )
 }

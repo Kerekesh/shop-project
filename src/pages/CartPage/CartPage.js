@@ -3,6 +3,7 @@ import { keys } from 'lodash'
 import productsArray from '../../components/Products/productsArray'
 import { Button, Card, CardContent, Grid, makeStyles } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
+import CartTotal from '../../components/Cart/CartTotal';
 
 const productsObj = productsArray.reduce((object, product) => ({
     ...object,
@@ -50,10 +51,7 @@ const CartPage = ({ productsInCart, removeProductFromCart }) => {
                     </Grid>
                 ))}
             </Grid>
-            <div>
-                Total: {keys(productsInCart).reduce((total, productId) => (
-                    total + productsInCart[productId] * productsObj[productId].price), 0)} $
-            </div>
+            <CartTotal productsInCart={productsInCart} />
         </>
     )
 }

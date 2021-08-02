@@ -2,8 +2,9 @@ import React from 'react'
 import { keys } from 'lodash'
 import productsArray, { getProductObj } from '../../components/Products/productsArray'
 import { Button, Card, CardContent, Grid, makeStyles } from '@material-ui/core'
-import DeleteIcon from '@material-ui/icons/Delete';
-import CartTotal from '../../components/Cart/CartTotal';
+import DeleteIcon from '@material-ui/icons/Delete'
+import CartTotal from '../../components/Cart/CartTotal'
+import Quantity from '../../components/Quantity/Quantity'
 
 const useStyles = makeStyles({
     media: {
@@ -20,7 +21,8 @@ const useStyles = makeStyles({
 const CartPage = ({
     productsInCart,
     removeProductFromCart,
-    productsObj = getProductObj(productsArray)
+    productsObj = getProductObj(productsArray),
+    setCount
 }) => {
     const classes = useStyles()
     return (
@@ -40,6 +42,7 @@ const CartPage = ({
                                     Price for one items: {productsObj[id].price}
                                 </p>
                                 <p>Count: {productsInCart[id]}</p>
+                                <Quantity count={productsInCart[id]} setCount={setCount} />
                                 <Button variant="contained"
                                     color="primary"
                                     onClick={() => removeProductFromCart(id)}>

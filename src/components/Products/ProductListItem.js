@@ -13,12 +13,12 @@ const ProductListItem = ({ id, name, description, type, color, price, image, add
 
     const [count, setCount] = useState(1)
 
-    const onIncrementClick = () => {
-        setCount(count + 1)
-    }
-
     const onDecrementClick = () => {
         setCount(count - 1)
+    }
+
+    const onIncrementClick = () => {
+        setCount(count + 1)
     }
 
     return (

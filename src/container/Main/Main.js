@@ -6,7 +6,7 @@ import CartPage from '../../pages/CartPage/CartPage'
 import PaymentPage from '../../pages/Payment/PaymentPage'
 import ShippingPage from '../../pages/Shipping/ShippingPage'
 
-const Main = ({ addProductToCart, productsInCart, removeProductFromCart }) => {
+const Main = ({ addProductToCart, productsInCart, removeProductFromCart, changeProductQuantity }) => {
     return (
         <Container>
             <Switch>
@@ -25,7 +25,8 @@ const Main = ({ addProductToCart, productsInCart, removeProductFromCart }) => {
                         return (
                             <CartPage addProductToCart={addProductToCart}
                                 productsInCart={productsInCart}
-                                removeProductFromCart={removeProductFromCart} />
+                                removeProductFromCart={removeProductFromCart}
+                                changeProductQuantity={changeProductQuantity} />
                         )
                     }} />
                 <Route

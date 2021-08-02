@@ -22,7 +22,7 @@ const CartPage = ({
     productsInCart,
     removeProductFromCart,
     productsObj = getProductObj(productsArray),
-    setCount
+    changeProductQuantity
 }) => {
     const classes = useStyles()
     return (
@@ -42,8 +42,18 @@ const CartPage = ({
                                     Price for one items: {productsObj[id].price}
                                 </p>
                                 <p>Count: {productsInCart[id]}</p>
-                                <Quantity count={productsInCart[id]} setCount={setCount} />
-                                <Button variant="contained"
+                                <Quantity
+                                    minCount={0}
+                                    onDecrementClick={() =>
+                                        productsInCart[id] === 1
+                                            ? removeProductFromCart(id)
+                                            : changeProductQuantity(id, productsInCart[id] - 1)
+                                    }
+                                    onIncrementClick={() => changeProductQuantity(id, productsInCart[id] + 1)}
+                                    count={productsInCart[id]}
+                                />
+                                <Button
+                                    variant="contained"
                                     color="primary"
                                     onClick={() => removeProductFromCart(id)}>
                                     <DeleteIcon />

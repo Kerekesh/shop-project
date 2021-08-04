@@ -2,6 +2,7 @@ import Container from '@material-ui/core/Container'
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import ProductsList from '../../components/Products/ProductsList'
+import Testimonials from '../../components/Testimonials/Testimonials'
 import CartPage from '../../pages/CartPage/CartPage'
 import PaymentPage from '../../pages/Payment/PaymentPage'
 import ShippingPage from '../../pages/Shipping/ShippingPage'
@@ -15,7 +16,10 @@ const Main = ({ addProductToCart, productsInCart, removeProductFromCart, changeP
                     exact
                     render={() => {
                         return (
-                            <ProductsList addProductToCart={addProductToCart} />
+                            <>
+                                <ProductsList addProductToCart={addProductToCart} />
+                                <Testimonials />
+                            </>
                         )
                     }}
                 />
@@ -28,7 +32,8 @@ const Main = ({ addProductToCart, productsInCart, removeProductFromCart, changeP
                                 removeProductFromCart={removeProductFromCart}
                                 changeProductQuantity={changeProductQuantity} />
                         )
-                    }} />
+                    }}
+                />
                 <Route
                     path="/payment"
                     component={PaymentPage} />

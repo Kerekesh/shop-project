@@ -45,7 +45,7 @@ const ProductListItem = ({ id, name, description, type, color, price, image, add
                     onClick={() => addProductToCart(id, count)}
                 >Add to cart</Button>
             </CardActions>
-        </Card >
+        </Card>
     )
 }
 

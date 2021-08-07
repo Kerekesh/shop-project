@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
     },
 }))
 
-const Header = ({ productsInCart }) => {
+const Header = ({ productsInCart, favorites }) => {
     const classes = useStyles()
 
     return (
@@ -37,8 +37,9 @@ const Header = ({ productsInCart }) => {
                     <Typography variant="h6" className={classes.title}>
                         Fake shop
                     </Typography>
-                    <Menu />
-                    <Cart productsInCart={productsInCart} />
+                    <Menu favorites={favorites} />
+                    <Cart productsInCart={productsInCart}
+                    />
                 </Toolbar>
             </Container>
         </AppBar>

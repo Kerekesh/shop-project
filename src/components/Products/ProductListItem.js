@@ -10,7 +10,18 @@ import Quantity from '../Quantity/Quantity'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
-const ProductListItem = ({ id, name, description, type, color, price, image, addProductToCart, toggleLikeButtonsState, likeButtonsState }) => {
+const ProductListItem = ({
+    id,
+    name,
+    description,
+    type,
+    color,
+    price,
+    image,
+    addProductToCart,
+    toggleLikeButtonsState,
+    likeButtonsState
+}) => {
     const [count, setCount] = useState(1)
 
     const onDecrementClick = () => {
@@ -21,9 +32,10 @@ const ProductListItem = ({ id, name, description, type, color, price, image, add
         setCount(count + 1)
     }
 
+
+
     return (
         <>
-            {/* {keys(likeButtonsState).map((id) => ( */}
             <Card>
                 <CardContent >
                     <div className="product-img">
@@ -54,8 +66,6 @@ const ProductListItem = ({ id, name, description, type, color, price, image, add
                     >Add to cart</Button>
                 </CardActions>
             </Card>
-            {/* ))} */}
-            {/* {console.log(keys(likeButtonsState))} */}
         </>
     )
 }

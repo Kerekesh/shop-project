@@ -56,8 +56,6 @@ const Testimonials = () => {
             return [...value, newTestimonials]
         })
     }
-
-    console.log(newTestimonials)
     return (
         <>
             <h1>Testimonials</h1>

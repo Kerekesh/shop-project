@@ -7,13 +7,21 @@ const useStyles = makeStyles({
     link: {
         color: 'white',
         textDecoration: 'none',
+        textTransform: 'uppercase',
         '&:hover': {
             textDecoration: 'underline',
         },
     },
+    favorite: {
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        '&:hover': {
+            textDecoration: 'none',
+        },
+    }
 })
 
-const Menu = () => {
+const Menu = ({ favorites }) => {
     const classes = useStyles()
     return (
         <>
@@ -29,6 +37,7 @@ const Menu = () => {
             <Button color="inherit">
                 <Link to="/shipping" className={classes.link}>Shipping</Link>
             </Button>
+            <div className={classes.favorite}>Favorites({favorites})</div>
             <Button color="inherit">
                 <Link to="/cart" className={classes.link}>Cart</Link>
             </Button>

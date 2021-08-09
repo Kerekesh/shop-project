@@ -19,8 +19,9 @@ const ProductListItem = ({
     price,
     image,
     addProductToCart,
-    toggleLikeButtonsState,
-    likeButtonsState
+    // toggleLikeButtonsState,
+    // likeButtonsState
+    isLiked = false
 }) => {
     const [count, setCount] = useState(1)
 
@@ -32,8 +33,9 @@ const ProductListItem = ({
         setCount(count + 1)
     }
 
-
-
+    const toggleLikes = (isLiked) => {
+        isLiked == true ? isLiked = false : isLiked = true
+    }
     return (
         <>
             <Card>
@@ -42,8 +44,8 @@ const ProductListItem = ({
                         <img src={image} />
                     </div>
 
-                    <Button onClick={() => toggleLikeButtonsState(id)}>
-                        {likeButtonsState[id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    <Button onClick={() => toggleLikes(id)}>
+                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </Button>
 
                     <h4>{name}</h4>

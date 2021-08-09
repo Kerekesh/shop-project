@@ -21,7 +21,9 @@ const useStyles = makeStyles({
     }
 })
 
-const Menu = ({ favorites }) => {
+const Menu = ({
+    likesLength
+}) => {
     const classes = useStyles()
     return (
         <>
@@ -37,7 +39,7 @@ const Menu = ({ favorites }) => {
             <Button color="inherit">
                 <Link to="/shipping" className={classes.link}>Shipping</Link>
             </Button>
-            <div className={classes.favorite}>Favorites({favorites})</div>
+            <div className={classes.favorite}>Favorites({likesLength})</div>
             <Button color="inherit">
                 <Link to="/cart" className={classes.link}>Cart</Link>
             </Button>

@@ -29,26 +29,22 @@ const App = () => {
         1: true,
         2: true
     })
-    const toggleLikeButtonsState = (id) => {
-        setLikeButtonsState({
-            ...likeButtonsState,
-            [id]: !likeButtonsState[id]
-        })
+
+    const changeLike = (id) => {
+        setLikeButtonsState((prevState) => ({
+            ...prevState,
+            [id]: !prevState[id]
+        }))
     }
 
-    const [favorites, setFavorites] = useState(5)
-
-
-    // const addToFavorites = (id) => {
-    //     likeButtonsState[id] ? setFavorites(favorites[id] + 1) : setFavorites(favorites[id])
-    // }
+    const likesLength = Object.keys(likeButtonsState).filter(item => likeButtonsState[item] === true).length
 
     return (
         <>
             <CssBaseline />
             <Header
                 productsInCart={productsInCart}
-                favorites={favorites}
+                likesLength={likesLength}
             />
             <Main
                 addProductToCart={addProductToCart}
@@ -56,7 +52,7 @@ const App = () => {
                 removeProductFromCart={removeProductFromCart}
                 changeProductQuantity={changeProductQuantity}
                 likeButtonsState={likeButtonsState}
-                toggleLikeButtonsState={toggleLikeButtonsState}
+                changeLike={changeLike}
             />
 
         </>

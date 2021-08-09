@@ -11,7 +11,11 @@ const useStyles = makeStyles({
     },
 })
 
-const ProductsList = ({ addProductToCart, likeButtonsState, toggleLikeButtonsState }) => {
+const ProductsList = ({
+    addProductToCart,
+    likeButtonsState,
+    changeLike
+}) => {
     const classes = useStyles()
 
 
@@ -47,8 +51,8 @@ const ProductsList = ({ addProductToCart, likeButtonsState, toggleLikeButtonsSta
                                 color={color}
                                 price={price}
                                 addProductToCart={addProductToCart}
-                                likeButtonsState={likeButtonsState}
-                                toggleLikeButtonsState={toggleLikeButtonsState}
+                                isLiked={likeButtonsState[id]}
+                                changeLike={changeLike}
                             />
                         </Grid>
                     ))}

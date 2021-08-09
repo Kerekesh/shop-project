@@ -6,10 +6,12 @@ import Button from '@material-ui/core/Button'
 import CardActions from '@material-ui/core/CardActions'
 import "./ProductListItem.css"
 import Quantity from '../Quantity/Quantity'
+import { connect } from 'react-redux'
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 
-
-const ProductListItem = ({ id, name, description, type, color, price, image, addProductToCart }) => {
+const ProductListItem = ({ id, name, description, type, color, price, image, addProductToCart, isLiked = false }) => {
 
     const [count, setCount] = useState(1)
 
@@ -27,6 +29,9 @@ const ProductListItem = ({ id, name, description, type, color, price, image, add
                 <div className="product-img">
                     <img src={image} />
                 </div>
+                <Button variant="outlined">
+                    {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </Button>
                 <h4>{name}</h4>
                 <p>{description}</p>
                 <div>Type: {type}</div>
@@ -45,10 +50,9 @@ const ProductListItem = ({ id, name, description, type, color, price, image, add
                     onClick={() => addProductToCart(id, count)}
                 >Add to cart</Button>
             </CardActions>
-        </Card >
+        </Card>
     )
 }
-
 
 ProductListItem.propTypes = {
     id: PropTypes.number.isRequired,
@@ -59,8 +63,13 @@ ProductListItem.propTypes = {
     price: PropTypes.number.isRequired,
     image: PropTypes.string,
 }
+
 ProductListItem.defaultProps = {
     description: "No description"
 }
 
-export default ProductListItem
+const mapStateToProps = (state, { id }) => ({
+    isLiked: state[id],
+})
+
+export default connect(mapStateToProps)(ProductListItem)

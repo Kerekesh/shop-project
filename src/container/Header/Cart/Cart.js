@@ -1,24 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { keys } from 'lodash'
-import productsArray, { getProductObj } from '../../../components/Products/productsArray'
 import CartTotal from '../../../components/Cart/CartTotal'
+import CartProductList from '../../../components/Cart/CartProductList'
 
-const productsObj = productsArray.reduce((object, product) => ({
-    ...object,
-    [product.id]: product
-}), {})
-
-const Cart = ({
-    productsInCart,
-    productsObj = getProductObj(productsArray) }) => {
+const Cart = ({ productsInCart }) => {
     return (
         <div>
-            {keys(productsInCart).map((id) => (
-                <div key={id}>
-                    {productsObj[id].name} : {productsInCart[id]}
-                </div>
-            ))}
+            <CartProductList productsInCart={productsInCart} />
             <CartTotal productsInCart={productsInCart} />
         </div>
     )

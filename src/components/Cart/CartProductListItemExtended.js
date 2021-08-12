@@ -2,6 +2,9 @@ import React from 'react'
 import { Button, Card, CardContent, Grid, makeStyles } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Quantity from '../Quantity/Quantity'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles({
     media: {
@@ -19,7 +22,10 @@ const CartProductListItemExtended = ({
     product,
     productCount,
     removeProductFromCart,
-    changeProductQuantity
+    changeProductQuantity,
+    isLiked = false,
+    addLike,
+    removeLike
 }) => {
     const classes = useStyles()
 
@@ -32,6 +38,12 @@ const CartProductListItemExtended = ({
                             className={classes.media} />
                     </div>
                     <CardContent>
+                        <Button
+                            variant="outlined"
+                            onClick={() => isLiked ? removeLike(id) : addLike(id)}
+                        >
+                            {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                        </Button>
                         <div>{product.name}</div>
                         <p>
                             Price for one items: {product.price}
@@ -60,4 +72,8 @@ const CartProductListItemExtended = ({
     )
 }
 
-export default CartProductListItemExtended
+const mapStateToProps = (state, { product }) => ({
+    isLiked: state[product.id],
+})
+
+export default connect(mapStateToProps)(CartProductListItemExtended)

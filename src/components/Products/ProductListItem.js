@@ -7,11 +7,11 @@ import CardActions from '@material-ui/core/CardActions'
 import "./ProductListItem.css"
 import Quantity from '../Quantity/Quantity'
 import { connect } from 'react-redux'
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
 
-const ProductListItem = ({ id, name, description, type, color, price, image, addProductToCart, isLiked = false }) => {
+const ProductListItem = ({ id, name, description, type, color, price, image, addProductToCart, isLiked = false, addLike, removeLike }) => {
 
     const [count, setCount] = useState(1)
 
@@ -29,7 +29,10 @@ const ProductListItem = ({ id, name, description, type, color, price, image, add
                 <div className="product-img">
                     <img src={image} />
                 </div>
-                <Button variant="outlined">
+                <Button
+                    variant="outlined"
+                    onClick={() => isLiked ? removeLike(id) : addLike(id)}
+                >
                     {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </Button>
                 <h4>{name}</h4>
@@ -72,4 +75,15 @@ const mapStateToProps = (state, { id }) => ({
     isLiked: state[id],
 })
 
-export default connect(mapStateToProps)(ProductListItem)
+const mapDispatchToProps = (dispatch) => ({
+    addLike: (id) => dispatch({
+        type: "LIKE",
+        id,
+    }),
+    removeLike: (id) => dispatch({
+        type: "DISLIKE",
+        id,
+    }),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListItem)

@@ -2,9 +2,13 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import CartTotal from '../../components/Cart/CartTotal'
 import CartProductList from '../../components/Cart/CartProductList'
-import CartProductListItemExtended from '../../components/Cart/CartPeoductListItemExtended'
+import CartProductListItemExtended from '../../components/Cart/CartProductListItemExtended'
 
-const CartPage = ({ productsInCart }) => {
+const CartPage = ({
+    productsInCart,
+    removeProductFromCart,
+    changeProductQuantity
+}) => {
     return (
         <>
             <h1> Cart Page</h1>
@@ -12,6 +16,8 @@ const CartPage = ({ productsInCart }) => {
                 <CartProductList
                     productsInCart={productsInCart}
                     CartItem={CartProductListItemExtended}
+                    removeProductFromCart={removeProductFromCart}
+                    changeProductQuantity={changeProductQuantity}
                 />
             </Grid>
             <CartTotal productsInCart={productsInCart} />

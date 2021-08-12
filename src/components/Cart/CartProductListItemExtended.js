@@ -23,9 +23,7 @@ const CartProductListItemExtended = ({
     productCount,
     removeProductFromCart,
     changeProductQuantity,
-    isLiked = false,
-    addLike,
-    removeLike
+    isLiked = false
 }) => {
     const classes = useStyles()
 
@@ -39,9 +37,7 @@ const CartProductListItemExtended = ({
                     </div>
                     <CardContent>
                         <Button
-                            variant="outlined"
-                            onClick={() => isLiked ? removeLike(id) : addLike(id)}
-                        >
+                            variant="outlined">
                             {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                         </Button>
                         <div>{product.name}</div>

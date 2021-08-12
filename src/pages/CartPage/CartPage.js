@@ -1,67 +1,18 @@
 import React from 'react'
-import { keys } from 'lodash'
-import productsArray, { getProductObj } from '../../components/Products/productsArray'
-import { Button, Card, CardContent, Grid, makeStyles } from '@material-ui/core'
-import DeleteIcon from '@material-ui/icons/Delete'
+import { Grid } from '@material-ui/core'
 import CartTotal from '../../components/Cart/CartTotal'
-import Quantity from '../../components/Quantity/Quantity'
+import CartProductList from '../../components/Cart/CartProductList'
+import CartProductListItemExtended from '../../components/Cart/CartPeoductListItemExtended'
 
-const useStyles = makeStyles({
-    media: {
-        width: 100,
-        height: 'auto',
-        marginRight: 20,
-    },
-    cardWrap: {
-        display: 'flex',
-        padding: 15
-    },
-})
-
-const CartPage = ({
-    productsInCart,
-    removeProductFromCart,
-    productsObj = getProductObj(productsArray),
-    changeProductQuantity
-}) => {
-    const classes = useStyles()
+const CartPage = ({ productsInCart }) => {
     return (
         <>
             <h1> Cart Page</h1>
             <Grid container spacing={3}>
-                {keys(productsInCart).map((id) => (
-                    <Grid item xs={12} sm={6} key={id}>
-                        <Card className={classes.cardWrap}>
-                            <div>
-                                <img src={productsObj[id].image}
-                                    className={classes.media} />
-                            </div>
-                            <CardContent>
-                                <div>{productsObj[id].name}</div>
-                                <p>
-                                    Price for one items: {productsObj[id].price}
-                                </p>
-                                <p>Count: {productsInCart[id]}</p>
-                                <Quantity
-                                    minCount={0}
-                                    onDecrementClick={() =>
-                                        productsInCart[id] === 1
-                                            ? removeProductFromCart(id)
-                                            : changeProductQuantity(id, productsInCart[id] - 1)
-                                    }
-                                    onIncrementClick={() => changeProductQuantity(id, productsInCart[id] + 1)}
-                                    count={productsInCart[id]}
-                                />
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={() => removeProductFromCart(id)}>
-                                    <DeleteIcon />
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
+                <CartProductList
+                    productsInCart={productsInCart}
+                    CartItem={CartProductListItemExtended}
+                />
             </Grid>
             <CartTotal productsInCart={productsInCart} />
         </>

@@ -69,7 +69,7 @@ const CartProductListItemExtended = ({
 }
 
 const mapStateToProps = (state, { product }) => ({
-    isLiked: state[product.id],
+    isLiked: state.likeButtonsState[product.id],
 })
 
 export default connect(mapStateToProps)(CartProductListItemExtended)

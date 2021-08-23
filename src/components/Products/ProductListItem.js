@@ -76,14 +76,22 @@ const mapStateToProps = (state, { id }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addLike: (id) => dispatch({
-        type: "LIKE",
-        id,
-    }),
-    removeLike: (id) => dispatch({
-        type: "DISLIKE",
-        id,
-    }),
+    addLike: (id) =>
+        dispatch({
+            type: "LIKE",
+            id,
+        }),
+    removeLike: (id) =>
+        dispatch({
+            type: "DISLIKE",
+            id,
+        }),
+    addProductToCart: (id, count) =>
+        dispatch({
+            type: "ADD_PRODUCT_TO_CART",
+            id,
+            count,
+        })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductListItem)

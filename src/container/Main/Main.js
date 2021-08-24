@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import ProductsList from '../../components/Products/ProductsList'
 import Testimonials from '../../components/Testimonials/Testimonials'
 import CartPage from '../../pages/CartPage/CartPage'
+import CheckoutPage from '../../pages/CheckoutPage/CheckoutPage'
 import PaymentPage from '../../pages/Payment/PaymentPage'
 import ShippingPage from '../../pages/Shipping/ShippingPage'
 
@@ -33,6 +34,9 @@ const Main = () => {
                 <Route
                     path="/shipping"
                     component={ShippingPage} />
+                <Route
+                    path="/checkout"
+                    component={CheckoutPage} />
             </Switch>
         </Container>
     )

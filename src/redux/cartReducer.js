@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { omit } from 'lodash'
 
-const cartReducer = (state = { 1: 3, 2: 2 }, action) => {
+const cartReducer = (state = {}, action) => {
     switch (action.type) {
         case "ADD_PRODUCT_TO_CART":
             return {

@@ -2,8 +2,9 @@ import { makeStyles } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
+import { connect } from 'react-redux'
 import ProductListItem from './ProductListItem'
-import productsArray from './productsArray'
+// import productsArray from './productsArray'
 
 const useStyles = makeStyles({
     title: {
@@ -11,7 +12,7 @@ const useStyles = makeStyles({
     },
 })
 
-const ProductsList = () => {
+const ProductsList = ({ productsArray }) => {
     const classes = useStyles()
 
 
@@ -55,4 +56,9 @@ const ProductsList = () => {
     )
 }
 
-export default ProductsList
+
+const mapStateToProps = (state) => ({
+    productsArray: state.products
+})
+
+export default connect(mapStateToProps)(ProductsList)

@@ -11,7 +11,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
 
-const ProductListItem = ({ id, name, description, type, color, price, image, addProductToCart, isLiked = false, addLike, removeLike }) => {
+const ProductListItem = ({ id, name, description, type, color, price, image, addProductToCart, isLiked = true, addLike, removeLike }) => {
 
     const [count, setCount] = useState(1)
 
@@ -22,6 +22,8 @@ const ProductListItem = ({ id, name, description, type, color, price, image, add
     const onIncrementClick = () => {
         setCount(count + 1)
     }
+
+
 
     return (
         <Card>

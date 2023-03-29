@@ -4,7 +4,7 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier', 'plugin:prettier/recommended'],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
@@ -12,6 +12,6 @@ module.exports = {
         ecmaVersion: 12,
         sourceType: 'module',
     },
-    plugins: ['react'],
+    plugins: ['react', 'prettier'],
     rules: {},
 }
